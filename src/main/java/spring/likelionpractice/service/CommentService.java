@@ -50,8 +50,7 @@ public class CommentService {
         Comment comment = commentRepository.findById(commentId);
         if (member == comment.getWriter()) {
             comment.updateComment(content);
-            return comment;
         }
-        else return null;
+        return comment;
     }
 }
