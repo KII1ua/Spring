@@ -17,18 +17,20 @@ public class ArticleDTO {
         private String content;
         private String writer;
         private LocalDateTime createDate;
-        private boolean ischange;
+        private boolean isChange;
+        private Long likeCount;
 
         public ResponseArticle(Article article) {
             this.title = article.getTitle();
             this.content = article.getContent();
             this.writer = article.getWriter().getNickname();
             this.createDate = article.getCreateDate();
+            this.likeCount = article.getLikeCount();
 
-            if(article.getCreateDate().equals(article.getCreateDate())) {
-                this.ischange = false;
+            if(article.getCreateDate().equals(article.getUpdateDate())) {
+                this.isChange = false;
             } else {
-                this.ischange = true;
+                this.isChange = true;
             }
         }
     }

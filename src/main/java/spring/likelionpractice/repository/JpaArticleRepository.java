@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import spring.likelionpractice.domain.Article;
+import spring.likelionpractice.domain.Member;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class JpaArticleRepository implements ArticleRepository {
 
     private final EntityManager em;
+    private final MemberRepository memberRepository;
 
     @Override
     public Article saveNewArticle(Article article) {
@@ -37,7 +39,8 @@ public class JpaArticleRepository implements ArticleRepository {
 
     @Override
     public List<Article> findUserAll(Long memberId) {
-        return em.createQuery("Select a from Article a where a.writer = :m", Article.class)
-                .setParameter("m", memberId).getResultList();
+        Member member = memberRepository.findById(memberId);
+        return em.createQuery("select a from Article a where a.writer = :m", Article.class)
+                .setParameter("m", member).getResultList();
     }
 }

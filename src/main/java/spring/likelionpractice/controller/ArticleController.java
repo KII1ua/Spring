@@ -5,15 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import spring.likelionpractice.DTO.ArticleDTO.*;
 import spring.likelionpractice.domain.Article;
-import spring.likelionpractice.domain.Member;
 import spring.likelionpractice.service.ArticleService;
 import spring.likelionpractice.service.JwtUtility;
-import spring.likelionpractice.service.MemberService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class ArticleController {
     private final ArticleService articleService;

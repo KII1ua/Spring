@@ -1,7 +1,6 @@
 package spring.likelionpractice.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
@@ -27,13 +26,15 @@ public class Article {
     private String title;
     @Column(columnDefinition = "TEXT")
     private String content;
+    private Long likeCount = 0L;
 
-    public Article(String title, String content, Member member) {
-        this.writer = writer;
+    public Article(String title, String content, Member writer) {
         this.createDate = LocalDateTime.now();
         this.updateDate = this.createDate;
         this.title = title;
         this.content = content;
+        this.writer = writer;
+        this.likeCount = 0L;
     }
 
     public void update(String title, String content) {

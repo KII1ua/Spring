@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class Member {
     @Id @GeneratedValue
     private Long id;
-    @Column(nullable = false)
+    @Column(unique = true)
     private String userId;
     private String password;
     @Setter

@@ -28,6 +28,7 @@ public class MemberService {
         return member;
     }
 
+    @Transactional
     public Member signUp(String userId, String password, String nickname) {
         Member member = memberRepository.findByUserId(userId);
         if(member != null) return null;
@@ -41,7 +42,7 @@ public class MemberService {
     public String login(String userId, String password) {
         Member member = findByUserId(userId);
         if(member != null && member.checkPassword(password)) {
-            return jwtUtility.generateToken(userId);
+            return jwtUtility.generateToken(member.getUserId());
         }
         return null;
     }

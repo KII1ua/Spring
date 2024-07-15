@@ -15,7 +15,6 @@ import java.util.List;
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
-//    private final MemberService memberService = new MemberService()
     private final MemberService memberService;
 
 
