@@ -43,4 +43,10 @@ public class JpaArticleRepository implements ArticleRepository {
         return em.createQuery("select a from Article a where a.writer = :m", Article.class)
                 .setParameter("m", member).getResultList();
     }
+
+    @Override
+    public void setLikeCount(Long articleId) {
+        Article article = em.find(Article.class, articleId);
+        article.setLikeCount(article.getLikeCount() + 1);
+    }
 }

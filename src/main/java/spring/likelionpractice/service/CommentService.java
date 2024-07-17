@@ -20,7 +20,6 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final MemberService memberService;
     private final ArticleService articleService;
-    private final JpaContext jpaContext;
 
     @Transactional
     public Comment saveComment(String token, Long article_id, String content) {

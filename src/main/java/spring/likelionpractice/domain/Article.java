@@ -3,6 +3,7 @@ package spring.likelionpractice.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -26,6 +27,7 @@ public class Article {
     private String title;
     @Column(columnDefinition = "TEXT")
     private String content;
+    @Setter
     private Long likeCount = 0L;
 
     public Article(String title, String content, Member writer) {
